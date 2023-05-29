@@ -7,11 +7,12 @@ Miscellaneous small projects, intended to work on and test small skills
 <br>
 
 ## MongoDB Atlas
-`ENV variables in deployment and mongoose connection in react`
+`ENV variables in deployment and mongoose connection in react.`
 <br>
 
 ## Live Chat
 `Live chat experiment.`
 <br>
 
-##
+## Blog
+`Apollo & Graph QL blog, using mongodb.`
