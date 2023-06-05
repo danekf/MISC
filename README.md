@@ -2,6 +2,11 @@
 Miscellaneous small projects, intended to work on and test small skills
 
 # Index
+
+## Request a plex
+`Request a video be added to plex library. With weekly added files sent to chatbot(skype)`
+<br>
+
 ## Redux
 `Redux pattern tests`
 <br>
