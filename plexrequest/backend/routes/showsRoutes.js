@@ -1,29 +1,17 @@
 const express = require('express');
 const Show = require('../schemas/showSchema');
 
+//controllers
+const { 
+  getAllShows,
+  getShowsByGenre,
+  addShow, 
+} = require('../controllers/showsController')
+
 const router = express.Router();
 
-router.get('/', async (req,res) => {
-  try {
-
-  } catch (error){
-    res.json({
-      error: error.message,
-    })
-  }
-});
-
-router.post('/', async (req,res) => {
-  const { title, year } = req.body;
-
-  try {
-    const show = await Show.create({title, year})
-    res.status(200).json(show);
-  } catch (error){
-    res.status(400).json({
-      error: error.message,
-    })
-  }
-});
+router.get('/', getAllShows);
+router.get('/genre/:genre', getShowsByGenre);
+router.post('/', addShow);
 
 module.exports = router

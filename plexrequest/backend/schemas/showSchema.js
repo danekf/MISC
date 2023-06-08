@@ -7,7 +7,9 @@ const showSchema = new Schema({
     type: String,
     required: true,
   },
-  year: Number,  
+  year: Number,
+  genre: String,
+    
 }, { timestamps: true})
 
 module.exports = mongoose.model('Show', showSchema);
