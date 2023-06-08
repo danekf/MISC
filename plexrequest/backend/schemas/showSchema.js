@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const movieSchema = new Schema({
+const showSchema = new Schema({
   title: {
     type: String,
     required: true,
   },
-  year: [Number],  
+  year: Number,  
 }, { timestamps: true})
 
-module.exports = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.model('Show', showSchema);

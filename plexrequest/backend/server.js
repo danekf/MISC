@@ -6,9 +6,9 @@ const app = express();
 const PORT = process.env.PORT;
 
 //routes
-const defaultRoute = require('./routes/home');
-const movieRoutes  = require('./routes/movies');
-const showRoutes = require('./routes/shows')
+const defaultRoute = require('./routes/homeRoutes');
+const movieRoutes  = require('./routes/moviesRoutes');
+const showRoutes = require('./routes/showsRoutes')
 
 //MIDDLEWARE
 
@@ -31,10 +31,10 @@ app.use('/api/shows', showRoutes)
 //MONGOOSE
 const username = process.env.P_CLUSTER_USERNAME;
 const password = process.env.P_CLUSTER_PASSWORD;
-const uri = "mongodb+srv://" + username + ":" + password + "@p-cluster.cbwratb.mongodb.net/?retryWrites=true&w=majority";
+const pDatauri = "mongodb+srv://" + username + ":" + password + "@p-cluster.cbwratb.mongodb.net/pData?retryWrites=true&w=majority";
 
 //connect to db
-mongoose.connect(uri)
+mongoose.connect(pDatauri)
 .then(()=>{
   console.log('connected to db')
     //listener
