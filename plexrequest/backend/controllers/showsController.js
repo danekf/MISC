@@ -30,7 +30,7 @@ const getShowsByGenre = async (req, res) => {
 
 }
 
-//add movie
+//add show
 const addShow = async (req, res) => {
   const { title, year } = req.body;
 
@@ -42,12 +42,50 @@ const addShow = async (req, res) => {
   }
 }
 
-//delete movie
+//delete show
+const deleteShow = async (req, res) => {
+  const { title } = req.params;
+
+  if (!mongoose.Types.ObjectID.isValid(title)) {
+    return res.status(404).json({error : "No such show found"})
+  }
+
+  const show = await Show.findOneAndDelete({ title: title });
+
+  if(!show){
+    return res.status(400).json({error: 'Error deleting show, title not found.'})
+  }
+
+  res,status(200).json(show);
+
+}
 
 //update movie
+const updateShow = async (req, res) => {
+  const { title } =  req.params;
+
+  
+  if (!mongoose.Types.ObjectID.isValid(title)) {
+    return res.status(404).json({error : "No such movie found"})
+  }
+
+
+  const show = await Show.findOneAndUpdate( {title: title}, {
+    ...req.body
+  })
+
+  //catch if movie could not update
+  if(!show){
+    return res.status(400).json({error: "Problem updating movie, title not found."})
+  }
+
+  res.status(200).json(show);
+}
 
 module.exports = {
   getAllShows,
   getShowsByGenre,
   addShow,
+  deleteShow,
+  updateShow,
 }
