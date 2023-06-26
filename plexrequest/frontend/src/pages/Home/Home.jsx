@@ -1,13 +1,13 @@
 import {useEffect, useState } from 'react';
+import Movies from '../../Components/Movies/Movies';
 
 const Home = () => {
   const [movies, setMovies] = useState(null);
-  console.log(process.env.REACT_APP_API_URI + '/api/movies')
 
   useEffect(()=>{
     const fetchRecentMovies = async () => {
       //get all movies
-      const response = await fetch(process.env.REACT_APP_API_URI + '/api/movies');
+      const response = await fetch(process.env.REACT_APP_API_URI + '/api/movies/recent');
       const moviesJSON = await response.json();
 
       //if there are no errors, ie if the response status is in the range of 200-299
@@ -15,7 +15,6 @@ const Home = () => {
         setMovies(moviesJSON)
       }
     }
-
     fetchRecentMovies()
   }, [])
 
@@ -23,11 +22,10 @@ const Home = () => {
   return (
     <div className="home">
       <div className="movies">
-        {movies && movies.map((movie) => (
-          <p key={movie.title}>
-            {movie.title}
-          </p>
-        ))}
+        {!movies && <h1>Fetching data...</h1>}
+        {movies && <h1>Recently added Movies</h1>}
+        {movies && <Movies movies = {movies} /> }
+
       </div>
     </div>
   )
