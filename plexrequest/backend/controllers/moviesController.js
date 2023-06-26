@@ -12,6 +12,19 @@ const getAllMovies = async (req, res) => {
 
 }
 
+//get recently added movies
+const getRecentlyAddedMovies = async (req, res) => {
+
+  try {
+    const movies = await Movie.find({}).sort({updatedAt: -1}).limit(10);
+    res.status(200).json(movies);
+  } catch (error) {
+    res.status(400).json({error: error.message});
+  }
+
+}
+
+
 //getmovie by genre
 const getMoviesByGenre = async (req, res) => {
   const {genre} = req.params || 'Comedy' //add OR statement for TESTING.
@@ -84,6 +97,7 @@ const updateMovie = async (req, res) => {
 
 module.exports = {
   getAllMovies,
+  getRecentlyAddedMovies,
   getMoviesByGenre,
   addMovie,
   deleteMovie,

@@ -12,6 +12,18 @@ const getAllShows = async (req, res) => {
 
 }
 
+//get recently added shows
+const getRecentlyAddedShows = async (req, res) => {
+
+  try {
+    const shows = await Show.find({}).sort({updatedAt: -1}).limit(10);
+    res.status(200).json(shows);
+  } catch (error) {
+    res.status(400).json({error: error.message});
+  }
+
+}
+
 //getmovie by genre
 const getShowsByGenre = async (req, res) => {
   const {genre} = req.params || 'Comedy' //add OR statement for TESTING.
@@ -84,6 +96,7 @@ const updateShow = async (req, res) => {
 
 module.exports = {
   getAllShows,
+  getRecentlyAddedShows,
   getShowsByGenre,
   addShow,
   deleteShow,

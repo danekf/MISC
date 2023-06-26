@@ -4,6 +4,7 @@ const Show = require('../schemas/showSchema');
 //controllers
 const { 
   getAllShows,
+  getRecentlyAddedShows,
   getShowsByGenre,
   addShow, 
   deleteShow,
@@ -13,6 +14,7 @@ const {
 const router = express.Router();
 
 router.get('/', getAllShows);
+router.get('/recent', getRecentlyAddedShows);
 router.get('/genre/:genre', getShowsByGenre);
 router.post('/', addShow);
 router.delete('/:title', deleteShow);

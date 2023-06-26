@@ -3,6 +3,7 @@ const Movie = require('../schemas/movieSchema');
 //controllers
 const { 
   getAllMovies,
+  getRecentlyAddedMovies,
   getMoviesByGenre,
   addMovie,
   deleteMovie,
@@ -12,6 +13,7 @@ const {
 const router = express.Router();
 
 router.get('/', getAllMovies);
+router.get('/recent', getRecentlyAddedMovies);
 router.get('/genre/:genre', getMoviesByGenre);
 router.post('/', addMovie);
 router.delete('/:title', deleteMovie);
