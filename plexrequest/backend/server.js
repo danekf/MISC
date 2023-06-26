@@ -12,6 +12,13 @@ const showRoutes = require('./routes/showsRoutes')
 
 //MIDDLEWARE
 
+  //--CORS
+const cors = require('cors');
+
+//***TODO***
+//later in dev, must allow cors only from single origin
+app.use(cors());
+
   //--access json data in requests
 app.use(express.json());
 
@@ -31,10 +38,10 @@ app.use('/api/shows', showRoutes)
 //MONGOOSE
 const username = process.env.P_CLUSTER_USERNAME;
 const password = process.env.P_CLUSTER_PASSWORD;
-const pDatauri = "mongodb+srv://" + username + ":" + password + "@p-cluster.cbwratb.mongodb.net/pData?retryWrites=true&w=majority";
+const pDataURI = "mongodb+srv://" + username + ":" + password + "@p-cluster.cbwratb.mongodb.net/pData?retryWrites=true&w=majority";
 
 //connect to db
-mongoose.connect(pDatauri)
+mongoose.connect(pDataURI)
 .then(()=>{
   console.log('connected to db')
     //listener

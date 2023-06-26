@@ -5,9 +5,9 @@ const getAllMovies = async (req, res) => {
 
   try {
     const movies = await Movie.find({}).sort({year: -1});
-    res.status(400).json(movies);
+    res.status(200).json(movies);
   } catch (error) {
-    res.status(200).json({error: error.message});
+    res.status(400).json({error: error.message});
   }
 
 }

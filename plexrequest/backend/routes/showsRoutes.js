@@ -16,6 +16,6 @@ router.get('/', getAllShows);
 router.get('/genre/:genre', getShowsByGenre);
 router.post('/', addShow);
 router.delete('/:title', deleteShow);
-router.patch('/:title', supdateShow);
+router.patch('/:title', updateShow);
 
 module.exports = router
