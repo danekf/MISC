@@ -2,7 +2,7 @@ const MovieCard = (props) => {
   const { movie } = props;
 
   return (
-    <div className="movieCard">
+    <div className="movieCard" >
       {movie.title} - {movie.year}
     </div>
   )

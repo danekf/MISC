@@ -1,4 +1,4 @@
-import {useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import Movies from '../../Components/Movies/Movies';
 
 const Home = () => {
@@ -15,16 +15,14 @@ const Home = () => {
         setMovies(moviesJSON)
       }
     }
-    fetchRecentMovies()
+    fetchRecentMovies();
   }, [])
-
 
   return (
     <div className="home">
       <div className="movies">
         {!movies && <h1>Fetching data...</h1>}
-        {movies && <h1>Recently added Movies</h1>}
-        {movies && <Movies movies = {movies} /> }
+        {movies && <Movies movies = {movies} setMovies={setMovies}/> }
 
       </div>
     </div>

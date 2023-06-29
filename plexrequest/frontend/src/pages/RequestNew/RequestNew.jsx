@@ -2,15 +2,20 @@ import './requestNew.css';
 import { useState, useEffec} from 'react';
 
 const RequestNew = () => {
-  const [title, setTitle] = useState('');
-  const [year, setYear] = useState('');
-  const [selector, setSelector] = useState(null);
+  const [state, setState] = useState({
+    title: '',
+    year: '',
+    selector: '-',
+  })
 
-  //temp
-  const [response, setResponse] = useState('');
+  const [confirmationMessage, setConfirmationMessage] = useState(null)
 
-  const updateValue = (event, setter ) => {
-    setter(event.target.value);
+  const updateState = (event) => {
+    
+    setState({
+      ...state,
+      [event.target.name]: event.target.value,
+    })
   }
 
   const submitForm = (event) => {
@@ -20,32 +25,48 @@ const RequestNew = () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        type: selector, 
-        title: title,
-        year:  year,
+        type: state.selector, 
+        title: state.title,
+        year:  state.year,
 
       })
   };
   fetch('https://reqres.in/api/posts', requestOptions)
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => {
+        //reset to default values
+        setState({
+          title: '',
+          year: '',
+          selector: '-',
+        })
+
+        setConfirmationMessage(true)
+      });
+    
   }
 
   return (
     <div className="requestContainer">
       <h2>Request a new title</h2>
         <div className="dropdown">Movie or Show?</div>
-            <select name='selector' id='selector' onChange={(event) => setSelector(event.target.value)}>
-              <option value="-"></option>
+            <select name='selector' id='selector' value={state.selector} onChange={(event) => {
+              setConfirmationMessage(false);
+              updateState(event);
+            }}>
+              <option value="-">-</option>
               <option value="Movie">Movie</option>
               <option value="Show">Show</option>
             </select> <br/>
-        {selector && 
+        {state.selector !== '-' && 
           <form>
-            <input type="text" value={title} title='Enter title' placeholder='Enter title' onChange={(event) => updateValue(event, setTitle)} /> <br/>
-            <input type='text' value={year} title='Enter year, helpful if there is more than one version.' placeholder= 'Enter year (optional)' onChange={(event) => updateValue(event, setYear)}></input> <br/>
+            <input type="text" value={state.title} title='Enter title' name='title' placeholder='Enter title' onChange={(event) => updateState(event)} /> <br/>
+            <input type='text' value={state.year} title='Enter year, helpful if there is more than one version.' name='year' placeholder= 'Enter year (optional)' onChange={(event) => updateState(event)}></input> <br/>
             <button onClick={event => submitForm(event)}>Submit Request</button>
           </form>
+        }
+        {confirmationMessage &&
+          <div className='confirmationMessage'>Your request has been submitted. Please select from dropdown to request an additional title.</div>
         }
     </div>
   )
