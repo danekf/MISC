@@ -11,9 +11,7 @@ body {
   margin: 0;
   font-family: "Poppins";
 }
-header {
-  background: #ffb17d;
-}
+
 header .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -26,10 +24,7 @@ header a {
   color: #333;
   text-decoration: none;  
 }
-header a .requestNew {
-  color: #ff2c2c;
-  text-decoration: none;  
-}
+
 .pages {
   max-width: 1400px;
   padding: 20px;

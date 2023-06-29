@@ -1,8 +1,10 @@
 import MovieCard from "./MovieCard/MovieCard";
 
-const Movies = (props) => {
-  const { movies } = props;
-  console.log(movies);
+const Movies = ({movies}) => {
+
+
+    /* **TODO** add filter dropdown for genre */
+
 
   return (
     movies.map((movie)=>{
