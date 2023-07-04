@@ -9,6 +9,7 @@ const movieSchema = new Schema({
   },
   year: Number,
   genre: String,
+  status: String,
     
 }, { timestamps: true})
 

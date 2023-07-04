@@ -9,6 +9,7 @@ const showSchema = new Schema({
   },
   year: Number,
   genre: String,
+  status: String,
     
 }, { timestamps: true})
 
