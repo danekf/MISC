@@ -10,6 +10,19 @@ The plan is to build a functional site. And then use the skeleton as a base from
   <li>mongoose @ 7.2.2</li>
   <li>dotenv @ 16.1.4</li>
   <li>express @ 4.18.12</li>
-  <li> </li>
+  <li>React-Bootstrap</li>
+  <li>Bootstrap </li>
 </ul>
 
+## Setup
+
+<ol>
+  <li>Clone and install dependencies (npm i) in backend and frontent.</li>
+  <li>Setup MongoDB Atlas cluster and db [here](https://www.mongodb.com/atlas).</li>
+  <li>Enable database access and network access for your location, under "Security" for your cluster.</li> 
+  <li>Setup ENV variable in backend, using example as template. Use your mongodb Atlas username and password setup in previous step.</li>
+</ol>
+
+## Use
+
+` npm start ` in the frontend/backend folder to spin them up.

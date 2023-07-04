@@ -60,7 +60,7 @@ const RequestNew = () => {
             </select> <br/>
         {state.selector !== '-' && 
           <form>
-            <input type="text" value={state.title} title='Enter title' name='title' placeholder='Enter title' onChange={(event) => updateState(event)} /> <br/>
+            <input type="text" value={state.title} title='Enter title' name='title' placeholder='Enter title' onChange={(event) => updateState(event)} required/> <br/>
             <input type='text' value={state.year} title='Enter year, helpful if there is more than one version.' name='year' placeholder= 'Enter year (optional)' onChange={(event) => updateState(event)}></input> <br/>
             <button onClick={event => submitForm(event)}>Submit Request</button>
           </form>

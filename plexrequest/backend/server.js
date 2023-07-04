@@ -15,8 +15,8 @@ const showRoutes = require('./routes/showsRoutes')
   //--CORS
 const cors = require('cors');
 
-//***TODO***
-//later in dev, must allow cors only from single origin
+    //***TODO***
+    //later in dev, must allow cors only from single origin
 app.use(cors());
 
   //--access json data in requests
