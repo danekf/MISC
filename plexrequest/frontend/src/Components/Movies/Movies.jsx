@@ -22,7 +22,7 @@ const Movies = ({movies, setMovies}) => {
 
       //if there are no errors, ie if the response status is in the range of 200-299
       if(response.ok) {
-        setMovies(moviesJSON)
+        setMovies(moviesJSON);
       }
     }
     fetchRecentMovies()

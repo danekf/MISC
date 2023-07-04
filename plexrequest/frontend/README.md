@@ -3,6 +3,8 @@ This repo is setup to use mongoDB to allow users to request that content be adde
 <br>
 Data is saved to a mongoose db (using db atlas data api) and will catalog everything so that users can see available content at a glance from any device and immediately request missing content without needing any 3rd party apps.
 <br>
+Uses redux for user/admin management.
+<br>
 The plan is to build a functional site. And then use the skeleton as a base from which to build a React Native app for daily use of the built backend.
 
 ## Dependencies
@@ -10,8 +12,9 @@ The plan is to build a functional site. And then use the skeleton as a base from
   <li>mongoose @ 7.2.2</li>
   <li>dotenv @ 16.1.4</li>
   <li>express @ 4.18.12</li>
-  <li>React-Bootstrap</li>
-  <li>Bootstrap </li>
+  <li>Redux </li>
+  <li>Redux js </li>
+  <li> Redux-persist </li>
 </ul>
 
 ## Setup
@@ -26,3 +29,10 @@ The plan is to build a functional site. And then use the skeleton as a base from
 ## Use
 
 ` npm start ` in the frontend/backend folder to spin them up.
+
+
+## TODO
+
+<ul>
+  <li>Add message to login when user is redirected for unauthorized route</li>
+</ul>
