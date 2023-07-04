@@ -4,7 +4,7 @@ const Movie = require('../schemas/movieSchema');
 const getAllMovies = async (req, res) => {
 
   try {
-    const movies = await Movie.find({}).sort({year: -1});
+    const movies = await Movie.find({status: 'complete'}).sort({year: -1});
     res.status(200).json(movies);
   } catch (error) {
     res.status(400).json({error: error.message});
@@ -16,7 +16,7 @@ const getAllMovies = async (req, res) => {
 const getRecentlyAddedMovies = async (req, res) => {
 
   try {
-    const movies = await Movie.find({}).sort({updatedAt: -1}).limit(10);
+    const movies = await Movie.find({status: 'complete'}).sort({updatedAt: -1}).limit(10);
     res.status(200).json(movies);
   } catch (error) {
     res.status(400).json({error: error.message});
@@ -31,7 +31,7 @@ const getMoviesByGenre = async (req, res) => {
 
 
   try {
-    const movies = await Movie.find({genre: genre.toLowerCase()}).sort({year: -1});
+    const movies = await Movie.find({genre: genre.toLowerCase(), status: 'complete'}).sort({year: -1});
     if(!movies) {
       return res.status(404).json({error: 'No movies found for genre.'})
     }
@@ -45,10 +45,10 @@ const getMoviesByGenre = async (req, res) => {
 
 //add movie
 const addMovie = async (req, res) => {
-  const { title, year } = req.body;
+  const { title, year, genre } = req.body;
 
   try {
-    const movie = await Movie.create({title, year});
+    const movie = await Movie.create({title, year, genre});
     res.status(200).json(movie);
   } catch (error) {
     res.status(400).json({error: error.message});

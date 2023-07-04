@@ -1,5 +1,5 @@
 import './requestNew.css';
-import { useState, useEffec} from 'react';
+import { useState, useEffect} from 'react';
 
 const RequestNew = () => {
   const [state, setState] = useState({
@@ -10,8 +10,7 @@ const RequestNew = () => {
 
   const [confirmationMessage, setConfirmationMessage] = useState(null)
 
-  const updateState = (event) => {
-    
+  const updateState = (event) => {    
     setState({
       ...state,
       [event.target.name]: event.target.value,
@@ -28,6 +27,7 @@ const RequestNew = () => {
         type: state.selector, 
         title: state.title,
         year:  state.year,
+        status: 'incomplete',
 
       })
   };

@@ -28,4 +28,8 @@ form button:hover {
   border-width: 1px;
 }
 
+form input {
+  color: red;
+}
+
 
