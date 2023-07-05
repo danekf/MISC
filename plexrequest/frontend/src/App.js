@@ -10,7 +10,7 @@ import RequestNew from './Pages/RequestNew/RequestNew';
 import Login from './Pages/Login/Login';
 
 //protected route imports
-import Review from './Pages/Admin/AdminReview/Review';
+import AdminReview from './Pages/Admin/AdminReview/AdminReview';
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
             {/* Protected routes */}
             <Route path='admin' element={
               <AdminProtectedRoute>
-                <Review  />
+                <AdminReview  />
               </AdminProtectedRoute>
             } />
 

@@ -19,7 +19,7 @@ const userSlice = createSlice({
       state.state.isFetching = true;
     },
     setUser : (state, userInfo) => {
-      state.userInfo = {...userInfo};
+      state.userInfo = {...userInfo.payload};
     },
     logout : (state) => {
       state.userInfo = {

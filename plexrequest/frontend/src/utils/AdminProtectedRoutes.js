@@ -9,7 +9,6 @@ const AdminProtectedRoute = ({children}) => {
     const user = useSelector((slice) => slice.user);
     let location = useLocation();
 
-    console.log(user);
 
     //if not an admin, do not allow to view.
     if(!user.userInfo.isAdmin) {
