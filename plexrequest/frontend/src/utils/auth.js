@@ -4,12 +4,12 @@
 */
 
 /* TODO
-  1. Add encryption to password before sending to db.
+  1. Add encryption to backend.
 */
 
 const verifyUser = (user) => {
  
-//placeholder dev or user login info, will be replaced by proper auth  
+//placeholder dev or user login info, will be replaced by proper auth once backend is built up.
 if(user.userName === 'dev'){
   return {
     userName: 'Danek',
